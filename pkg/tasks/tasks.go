@@ -21,6 +21,12 @@ func NewTasks() *Tasks {
 	}
 }
 
+func NewTasksFromList(list []Task) *Tasks {
+	var tasks = NewTasks()
+	tasks.tasks = list
+	return tasks
+}
+
 func ParseTasks(re io.Reader) (*Tasks, error) {
 	var taskSet = make(map[string][]string)
 	var scanner = bufio.NewScanner(re)
